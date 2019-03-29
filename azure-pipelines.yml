@@ -19,6 +19,7 @@ steps:
   inputs:
     hostName: github.com
     sshKeySecureFile: deploy_key
+    sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvuomgVt7jPghDpNEdI/PkuRJzrS8yMDYzFMaEMMcneRPx+t1sQRMwJLVR2aFOe5jp1H9527iiTFREKk9Lu5rT2i0qzEjtAcBTpnDVkYr1BtJ5NeJnyK8hTh3rJ4WUB9zpFZYl0IEYi4AV/6U9ZAO7GrBBlFTxEQyLpR4+vREn23OywkJnpV73igpSxeDwf9AoH2yf2BKsyLyYusX188wO0E2NdAX9h6QWVUvuiMjFSufiPlt/myhTjzfIry/jITqk41aPQhDieui7q4MUppBp33X3vCQqxX83SkD/U2QMNG7tQakpCDMxR9Gzyp/seIEXve6K1/+0tvTRXchZZErJ mattc@DIFFERENTLAPTOP
 
 - script: |
     git remote set-url --push origin git@github.com:vtbassmatt/vtbassmatt.github.io.git
