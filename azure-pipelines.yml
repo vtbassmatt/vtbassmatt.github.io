@@ -15,18 +15,15 @@ steps:
     git commit -m "Publishing GitHub Pages  ***NO_CI***"
   displayName: 'Build and commit pages'
 
-- task: DownloadSecureFile@1
+- task: InstallSSHKey@0
   inputs:
-    secureFile: deploy_key
-  displayName: 'Get the deploy key'
+    hostName: github.com
+    sshKeySecureFile: deploy_key
 
 - script: |
-    mkdir ~/.ssh && mv $DOWNLOADSECUREFILE_SECUREFILEPATH ~/.ssh/id_rsa
-    chmod 700 ~/.ssh && chmod 600 ~/.ssh/id_rsa
-    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     git remote set-url --push origin git@github.com:vtbassmatt/vtbassmatt.github.io.git
     git push origin HEAD:master
   displayName: 'Publish GitHub Pages'
   condition: |
     and(not(eq(variables['Build.Reason'], 'PullRequest')),
-        eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        eq(variables['Build.SourceBranch'], 'refs/heads/master'))    
